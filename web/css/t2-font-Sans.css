@@ -1,0 +1,41 @@
+@font-face {
+  font-family: "Tele2Sans-Regular";
+  src: url("../fonts/Tele2_Sans/eot/Tele2Sans-Regular.eot");
+  src: url("../fonts/Tele2_Sans/eot/Tele2Sans-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Tele2_Sans/woff2/Tele2Sans-Regular.woff2") format("woff2"), url("../fonts/Tele2_Sans/woff/Tele2Sans-Regular.woff") format("woff"), url("../fonts/Tele2_Sans/ttf/Tele2Sans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Tele2Sans-RegularItalic";
+  src: url("../fonts/Tele2_Sans/eot/Tele2Sans-RegularItalic.eot");
+  src: url("../fonts/Tele2_Sans/eot/Tele2Sans-RegularItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/Tele2_Sans/woff2/Tele2Sans-RegularItalic.woff2") format("woff2"), url("../fonts/Tele2_Sans/woff/Tele2Sans-RegularItalic.woff") format("woff"), url("../fonts/Tele2_Sans/ttf/Tele2Sans-RegularItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Tele2Sans-Medium";
+  src: url("../fonts/Tele2_Sans/eot/Tele2Sans-Medium.eot");
+  src: url("../fonts/Tele2_Sans/eot/Tele2Sans-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/Tele2_Sans/woff2/Tele2Sans-Medium.woff2") format("woff2"), url("../fonts/Tele2_Sans/woff/Tele2Sans-Medium.woff") format("woff"), url("../fonts/Tele2_Sans/ttf/Tele2Sans-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Tele2Sans-MediumItalic";
+  src: url("../fonts/Tele2_Sans/eot/Tele2Sans-MediumItalic.eot");
+  src: url("../fonts/Tele2_Sans/eot/Tele2Sans-MediumItalic?#iefix") format("embedded-opentype"), url("../fonts/Tele2_Sans/woff2/Tele2Sans-MediumItalic.woff2") format("woff2"), url("../fonts/Tele2_Sans/woff/Tele2Sans-MediumItalic.woff") format("woff"), url("../fonts/Tele2_Sans/ttf/Tele2Sans-MediumItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Tele2Sans-Light";
+  src: url("../fonts/Tele2_Sans/eot/Tele2Sans-Light.eot");
+  src: url("../fonts/Tele2_Sans/eot/Tele2Sans-Light?#iefix") format("embedded-opentype"), url("../fonts/Tele2_Sans/woff2/Tele2Sans-Light.woff2") format("woff2"), url("../fonts/Tele2_Sans/woff/Tele2Sans-Light.woff") format("woff"), url("../fonts/Tele2_Sans/ttf/Tele2Sans-Light.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Tele2Sans-LightItalic";
+  src: url("../fonts/Tele2_Sans/eot/Tele2Sans-LightItalic.eot");
+  src: url("../fonts/Tele2_Sans/eot/Tele2Sans-LightItalic?#iefix") format("embedded-opentype"), url("../fonts/Tele2_Sans/woff2/Tele2Sans-LightItalic.woff2") format("woff2"), url("../fonts/Tele2_Sans/woff/Tele2Sans-LightItalic.woff") format("woff"), url("../fonts/Tele2_Sans/ttf/Tele2Sans-LightItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }

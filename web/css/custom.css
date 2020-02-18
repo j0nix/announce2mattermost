@@ -1,0 +1,179 @@
+
+.custom{
+	max-width: 1000px;
+	padding: 20px 12px 10px 20px;
+	font-family: "Tele2Sans-Medium";
+	font-size: 13px;
+}
+.custom-heading{
+	font-weight: bold;
+	font-style: italic;
+	border-bottom: 2px solid #ddd;
+	margin-bottom: 20px;
+	font-size: 15px;
+	padding-bottom: 3px;
+}
+.custom label{
+	display: block;
+	margin: 0px 0px 15px 0px;
+}
+.custom label > span{
+	width: 100px;
+	font-weight: bold;
+	float: left;
+	padding-top: 8px;
+	padding-right: 5px;
+}
+.custom span.required{
+	color:red;
+}
+.custom input.input-field,
+.custom .select-field,
+.custom .textarea-field{
+	width: 100%;
+}
+.custom input.input-field,
+.custom .tel-number-field,
+.custom .textarea-field,
+.custom .select-field{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border: 1px solid #C2C2C2;
+	box-shadow: 1px 1px 4px #EBEBEB;
+	-moz-box-shadow: 1px 1px 4px #EBEBEB;
+	-webkit-box-shadow: 1px 1px 4px #EBEBEB;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	padding: 7px;
+	outline: none;
+}
+.custom .input-field:focus,
+.custom .tel-number-field:focus,
+.custom .textarea-field:focus,
+.custom .select-field:focus{
+	border: 1px solid #0C0;
+}
+.custom input[type=submit],
+.custom input[type=button]{
+	border: none;
+	padding: 8px 15px 8px 15px;
+	background: #FF8500;
+	color: #fff;
+	box-shadow: 1px 1px 4px #DADADA;
+	-moz-box-shadow: 1px 1px 4px #DADADA;
+	-webkit-box-shadow: 1px 1px 4px #DADADA;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+}
+.custom input[type=submit]:hover,
+.custom input[type=button]:hover{
+	background: #EA7B00;
+	color: #fff;
+}
+.window {
+  border-radius: 3px;
+  background: #222;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  /*width: 70%;*/
+}
+.window:before {
+  content: ' ';
+  display: block;
+  height: 48px;
+  background: #C6C6C6;
+}
+.window:after {
+  content: '. . .';
+  position: absolute;
+  left: 12px;
+  right: 0;
+  top: -3px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 96px;
+  color: #fff;
+  line-height: 0;
+  letter-spacing: -12px;
+}
+
+.terminal {
+  margin: 20px;
+  font-family: monospace;
+  font-size: 16px;
+  color: #22da26;
+}
+.terminal .command {
+  white-space: pre-wrap;       /* css-3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+.terminal .command:before {
+  content: '$ ';
+  color: #22da26;
+}
+.terminal .log {
+  white-space: pre-wrap;       /* css-3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+  overflow: hidden;
+}
+
+pre {
+  font-size: inherit;
+  color: inherit;
+  word-wrap: inherit;
+  overflow: inherit;
+}
+hr {
+  height: 4px;
+  border: 0;
+  padding: 0;
+  opacity: 0.2;
+  background: rgb(51, 51, 51) none repeat scroll 0% 0%;
+}
+#pMessage pre {
+	padding:2px;
+	background-color: rgba(251, 251, 251);
+	border: 1px solid #CCC;
+	border-radius:4px;
+
+}
+#pMessage pre code {
+	background-color: inherit;
+}
+
+code {
+font-family: "Tele2Sans-Light";
+background-attachment: scroll;
+background-clip: border-box;
+background-color: rgba(51, 51, 51, 0.1);
+background-image: none;
+background-origin: padding-box;
+background-position: 0% 0%;
+background-position-x: 0%;
+background-position-y: 0%;
+background-repeat: repeat;
+background-size: auto;
+border-bottom-left-radius: 4px;
+border-bottom-right-radius: 4px;
+border-top-left-radius: 4px;
+border-top-right-radius: 4px;
+box-sizing: border-box;
+color: rgb(51, 51, 51);
+line-height: 33.75px;
+overflow-wrap: break-word;
+padding-bottom: 2px;
+padding-left: 4px;
+padding-right: 4px;
+padding-top: 2px;
+white-space: pre-wrap;
+}

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<!-- https://www.w3schools.com/bootstrap4/default.asp -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Datacenter Services - IaaS">
+	<title>Announce2mattermost</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="css/t2-font-Slab.css">
+	<link rel="stylesheet" href="css/t2-font-Sans.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/custom.css">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/showdown.min.js"></script>
+	<script type="text/javascript">
+	  $(document).ready(function(){
+		//markdown  converter for markdown preview
+		var converter = new showdown.Converter();
+		var channels = getChannels();
+		converter.setOption('tables', 'true');
+		converter.setOption('simpleLineBreaks','true')
+		converter.setOption('emoji','true')
+		$("#pHeader").html(converter.makeHtml("## `ANNOUNCEMENT` \n***"));
+		$("#pTopic").html(converter.makeHtml("\n**TOPIC:** **`MY TOPIC`** \n"));
+		$("#pMessage").html(converter.makeHtml("*my message*"));
+		$("#pFooter").html(converter.makeHtml("\n *** \n *Announcement broadcasted in channels:* `"+channels.join("` `")+"`\n"));
+		// Alert stuff
+		$("#alert-box").hide();
+		// use https://www.w3schools.com/bootstrap4/bootstrap_alerts.asp classes to select type of alert
+		function alerter(alertClass,msg) {
+			var $alertButton = $("<button>", { type: "button", class: "close", "data-dismiss": "alert", html: "&times;"});
+			var $alertText = $("<p>", { style: "margin-bottom:0;", html: '<b style="text-transform: uppercase;">' + alertClass + '</b> ' + msg });
+			var $alertDiv = $("<div>", { class: "alert alert-dismissible", style: "margin-top:5px;" });
+			$alertDiv.addClass(alertClass);
+			$alertDiv.append($alertButton).append($alertText);
+			$("#alert-box").append($alertDiv).show();
+			// Require manual ack for danger alerts
+			if (alertClass != "alert-danger") {
+				setTimeout(function(){
+					//auto acknowledge 'success' alerts
+					$("#alert-box").find("."+alertClass).remove();
+				}, 5000);
+			}
+		}
+		// Preview topic 
+		$("#topic").keyup(function(){
+			var currentText = $(this).val();
+			if (currentText == "") {
+				currentText = "my topic";
+			}
+			$("#pTopic").html(converter.makeHtml("\n**TOPIC:** **`"+currentText.toUpperCase()+"`** \n"));
+
+    		});
+		// Preview message
+		$("#message").keyup(function(){
+			var currentText = $(this).val();
+			if (currentText == "") {
+				currentText = "*my message*";
+			}
+			$("#pMessage").html(converter.makeHtml(currentText));
+
+    		});
+
+		//Selected channels check, also populate preview
+		$("input[name='channel']"). click(function(){
+
+			channels = getChannels();
+                        if (channels.length == 0) {
+				alerter("alert-warning", "Require at least one channel")
+                                return false;
+                        }
+
+			$("#pFooter").html(converter.makeHtml("\n *** \n *Announcement broadcasted in channels:* `"+channels.join("` `")+"`\n"));
+		});
+		// Get checked channels
+		function getChannels() {
+			channels = [];
+			$.each($("input[name='channel']:checked"), function(){
+                                channels.push($(this).val());
+                        });
+			return channels
+		}
+
+		// Serialize data function.. since serializeArray did not do it as i wanted it
+		function objectifyArray(serializedArray) {
+  				var newArray = {};
+  				for (var i = 0; i < serializedArray.length; i++){
+				newArray[serializedArray[i]['name']] = serializedArray[i]['value'];
+			}
+			return newArray;
+		}
+		// Fetch latest build tag
+		$.ajax({url: "api/v1/buildtag", type: "GET", contentType: "application/json; charset=utf-8", dataType: "json", }).done(function(data){
+			if (data.build) {
+				$("#buildtag").html(data.build);
+			}
+		});
+
+		// POST data to backen to crunch before send to backend endpoint
+		$('#general').submit(function( event ) {
+			// Don't reload page
+			event.preventDefault();
+
+			//Fetch selected channels
+			channels = getChannels();
+			if (channels.length == 0) {
+				alerter("alert-warning", "Require at least one channel")
+				return false;
+			}
+
+			//Get that formdata ready to get jsonify:ed
+			obj_data = objectifyArray($(this).serializeArray())
+			//api endpoint
+			url = 'api/v1/mattermost/'+channels.join(",");
+			//Send data, as json to backend endpoint
+			$.ajax({
+  				url: url,
+  				type: "POST",
+  				data: JSON.stringify(obj_data),
+  				contentType: "application/json; charset=utf-8",
+  				dataType: "json",
+  			})
+			.done(function(res_data){
+
+				if(res_data.error) {
+					alerter("alert-danger",res_data.error)
+				} else {
+					$.each(res_data.success, function (index, value) {
+						alerter("alert-success", "Announcement publiched in " + value.channel )
+					});
+					$.each(res_data.fail, function (index, value) {
+						alerter("alert-danger", "Fail announcement to channel '" + value.channel + "'<br>" + value.reply)
+					});
+				}
+			})
+			.fail(function(res_data) {
+				alerter('alert-danger', "Failed post data to backend" );
+			});
+ 		});
+	  });
+	</script>
+</head>
+
+<body>
+<div style="padding: 1rem 1rem; margin-bottom:0;background: #181818;color: #ffffff;">
+	<img height="100px" src="img/Logo_White.png" style="float:left;margin-top: -25px;">
+	<h1 style="font-family: 'Tele2Sans-Medium';font-weight:600;">Announce2Mattermost</h1>
+</div>
+<div style="font-family: 'Tele2Sans-Light'; float:right;margin-right:10px;font-size: small">Build: <span id="buildtag">null</span></div>
+<div class="container-fluid" style="font-family: 'Tele2Sans-Regular';">
+	<div class="row">
+		<!-- Max 12 cols, read all about it at https://www.w3schools.com/bootstrap4/bootstrap_grid_basic.asp -->
+		<div class="col-sm-1">&nbsp;</div>
+		<div class="col-sm-6">
+			<div id="alert-box"></div>
+			<div class="custom">
+	    			<form id="general" class="was-validated">
+					<label for="channels" style="background-color: rgba(51, 51, 51, 0.1); border: 1px solid rgba(51, 51, 51, 0.1); border-radius: 5px;">
+						<span style="width:auto;padding-bottom:5px;margin-left: 5px;">Select channels for your announcement</span>
+						<div style="clear:left;margin-left:10px;">
+							<div class="form-check-inline">
+								<label class="form-check-label">
+									<input type="checkbox" id="channel" name="channel" class="form-check-input" checked disabled value="iaasannouncements">IaaS - Announcements
+								</label>
+							</div>
+							<div class="form-check-inline">
+								<label class="form-check-label">
+									<input type="checkbox" id="channel" name="channel" class="form-check-input" checked value="platform">IaaS (platform)
+								</label>
+							</div>
+							<div class="form-check-inline">
+								<label class="form-check-label">
+									<input type="checkbox" id="channel" name="channel" class="form-check-input" value="delivery">delivery
+								</label>
+							</div>
+							<div class="form-check-inline">
+								<label class="form-check-label">
+									<input type="checkbox" id="channel" name="channel" class="form-check-input" value="datacenter-dockeree">Datacenter - DockerEE
+								</label>
+							</div>
+						</div>
+					</label>
+					<div class="form-group">
+					<label for="topic">
+						<span>Topic</span>
+						<input type="text" class="input-field form-control" id="topic" name="topic" placeholder="Topic of your announcement" value="" required/>
+						<div class="invalid-feedback" style="text-align:left;">Set your topic</div>
+					</label>
+					</div>
+
+					<div class="form-group">
+					<label for="message">
+						<span>Message</span>
+						<textarea rows="6" class="textarea-field form-control" id="message" name="message" placeholder="Body text of your announcement" value="" required/></textarea>
+						<div class="invalid-feedback">Fill out your message</div>
+					</label>
+					</div>
+					<label>
+						<input type="submit" style="width:-webkit-fill-available;" value="Announce in Mattermost" />
+					</label>
+					<div>
+					<fieldset style="padding:10px;border:1px solid #CCC;border-radius:5px;">
+					<legend style="padding:5px;width:auto;color:blue;">Preview</legend>
+						<div id="preview">
+							<span id="pHeader"></span>
+							<span id="pTopic"></span>
+							<span id="pMessage"></span>
+							<span id="pFooter"></span>
+						</div>
+					</fieldset>
+					</div>
+	    			</form>
+  			</div>
+		</div>
+		<div class="col-sm-5">&nbsp;</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-1">&nbsp;</div>
+		<div class="col-sm-6" style="height:100px;text-align: center;vertical-align: bottom;font-size: x-small;"><pre>Powered by j0nix</pre></div>
+		<div class="col-sm-5">&nbsp;</div>
+	</div>
+</div>
+</body>
+</html>
