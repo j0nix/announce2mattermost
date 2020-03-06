@@ -3,8 +3,6 @@ jobs:
   build:
     machine:
       image: ubuntu-1604:201903-01
-    environment: 
-      BUILDTAG: 0
     steps:
       - checkout
       - run:
