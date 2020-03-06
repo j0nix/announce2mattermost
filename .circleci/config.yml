@@ -5,7 +5,7 @@ version: 2.1
 parameters:
   image-tag:
     type: string
-    default: << pipeline.git.tag >>-<< pipeline.git.revision >>
+    default: << pipeline.git.revision >>
     
 jobs:
   build:
@@ -28,7 +28,6 @@ jobs:
     #working_directory: /go/src/github.com/j0nix/announce2mattermost
     steps:
       - checkout
-      - run: echo "<< pipeline.git.tag >>"
       - run: docker build --build-arg version=<< pipeline.parameters.image-tag >> -t form2mattermost:<< pipeline.parameters.image-tag >> .
       # specify any bash command here prefixed with `run: `
       ##- run: go mod download
