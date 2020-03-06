@@ -23,4 +23,7 @@ jobs:
 
       # specify any bash command here prefixed with `run: `
       #- run: go mod download
+      - run: go get github.com/gorilla/mux v1.7.3
+	    - run: go get gopkg.in/asn1-ber.v1 v1.0.0-20181015200546-f715ec2f112d // indirect
+	    - run: go get gopkg.in/ldap.v3 v3.0.3
       - run: go build -tags=netgo -o app .
