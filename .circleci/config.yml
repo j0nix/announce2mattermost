@@ -23,6 +23,8 @@ jobs:
     #working_directory: /go/src/github.com/j0nix/announce2mattermost
     steps:
       - checkout
+      - run: echo "<< pipeline.git.revision >>"
+      - run: echo "<< pipeline.project.git_url >>"
       - run: docker build --build-arg version=<< pipeline.git.tag >> -t form2mattermost:<< pipeline.git.tag >> .
       # specify any bash command here prefixed with `run: `
       ##- run: go mod download
