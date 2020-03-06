@@ -1,4 +1,6 @@
-module https://github.com/j0nix/announce2mattermost
+module github.com/j0nix/announce2mattermost
+
+go 1.12
 
 require (
 	github.com/gorilla/mux v1.7.3
