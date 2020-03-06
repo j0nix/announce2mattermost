@@ -11,6 +11,7 @@ jobs:
           name: Define BUILD_TAG and build image
           command: |
             echo 'export BUILD_TAG=$CIRCLE_BUILD_NUM' >> $BASH_ENV && source $BASH_ENV
-      - run: env | grep BUILD_TAG
-      - run: env | grep CIRCLE_BUILD_NUM
-      - run: source $BASH_ENV && echo $BUILD_TAG && echo ${CIRCLE_BUILD_NUM} && docker build --build-arg version=0.${BUILD_TAG} -t form2mattermost:0.$BUILD_TAG .
+      #- run: env | grep BUILD_TAG
+      #- run: env | grep CIRCLE_BUILD_NUM
+      #- run: source $BASH_ENV && echo $BUILD_TAG && echo ${CIRCLE_BUILD_NUM} && docker build --build-arg version=0.${BUILD_TAG} -t form2mattermost:0.$BUILD_TAG .
+      - run: docker build --build-arg version=0.${BUILD_TAG} -t form2mattermost:0.${BUILD_TAG} .
