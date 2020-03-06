@@ -1,4 +1,4 @@
-module git.is.comhem.com/platformproduction/form2mattermost
+module github.com/j0nix/announce2mattermost
 
 go 1.12
 
