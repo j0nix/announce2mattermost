@@ -8,4 +8,7 @@ jobs:
     steps:
       - checkout
       - run: GITREV="${GITREV:0:6}"
-      - run: docker build --build-arg version=$GITREV -t form2mattermost:$GITREV .
+      - run: echo $GITREV
+      - run: echo ${GITREV}
+      - run: env
+      #- run: docker build --build-arg version=$GITREV -t form2mattermost:$GITREV .
