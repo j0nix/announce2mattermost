@@ -21,7 +21,6 @@ jobs:
     ####   /go/src/github.com/circleci/go-tool
     ####   /go/src/bitbucket.org/circleci/go-tool
     #working_directory: /go/src/github.com/j0nix/announce2mattermost
-    working_directory: .
     steps:
       - checkout
       - run: docker build --build-arg version=<< pipeline.git.tag >> -t form2mattermost:<< pipeline.git.tag >> .
