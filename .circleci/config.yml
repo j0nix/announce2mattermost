@@ -2,6 +2,11 @@
 #
 # Check https://circleci.com/docs/2.0/language-go/ for more details
 version: 2.1
+parameters:
+  image-tag:
+    type: string
+    default: << pipeline.git.tag >>-<< pipeline.git.revision >>
+    
 jobs:
   build:
     machine:
@@ -23,9 +28,8 @@ jobs:
     #working_directory: /go/src/github.com/j0nix/announce2mattermost
     steps:
       - checkout
-      - run: echo "<< pipeline.git.revision >>"
-      - run: echo "<< pipeline.project.git_url >>"
-      - run: docker build --build-arg version=<< pipeline.git.tag >> -t form2mattermost:<< pipeline.git.tag >> .
+      - run: echo "<< pipeline.git.tag >>"
+      - run: docker build --build-arg version=<< pipeline.parameters.image-tag >> -t form2mattermost:<< pipeline.parameters.image-tag >> .
       # specify any bash command here prefixed with `run: `
       ##- run: go mod download
       #- run: go get github.com/gorilla/mux
