@@ -1,0 +1,12 @@
+version: 2.1    
+jobs:
+  build:
+    machine:
+      image: ubuntu-1604:201903-01
+    steps:
+      - checkout
+      - run:
+          name: Define BUILD_TAG environment variable
+          command: |
+            echo 'export BUILD_TAG=$CIRCLE_BUILD_NUM' >> $BASH_ENV && source $BASH_ENV
+      - run: docker build --build-arg version=0.${BUILD_TAG} -t form2mattermost:0.${BUILD_TAG} .
