@@ -8,9 +8,10 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Define BUILDTAG and build image
+          name: Define BUILD_TAG and build image
           command: |
             echo 'export BUILDTAG=$CIRCLE_BUILD_NUM' >> $BASH_ENV
-            source $BASH_ENV
-            env
-            docker build --build-arg version=0.${BUILDTAG} -t form2mattermost:0.${BUILD_TAG} .
+            && source $BASH_ENV
+            && env | grep BUILD_TAG
+            && env | grep CIRCLE_BUILD_NUM
+            && docker build --build-arg version=0.${BUILD_TAG} -t form2mattermost:0.$BUILD_TAG .
