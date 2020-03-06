@@ -1,6 +1,4 @@
-module git.is.comhem.com/platformproduction/form2mattermost
-
-go 1.12
+module https://github.com/j0nix/announce2mattermost
 
 require (
 	github.com/gorilla/mux v1.7.3
