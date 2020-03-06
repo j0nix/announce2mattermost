@@ -3,12 +3,6 @@ jobs:
   build:
     machine:
       image: ubuntu-1604:201903-01
-    environment:
-      GITREV: << pipeline.git.revision >>
     steps:
       - checkout
-      - run: GITREV="${GITREV:0:6}"
-      - run: echo $GITREV
-      - run: echo ${GITREV}
-      - run: env
-      #- run: docker build --build-arg version=$GITREV -t form2mattermost:$GITREV .
+      - run: docker build --build-arg version=0.${CIRCLE_BUILD_NUM} -t form2mattermost:0.${CIRCLE_BUILD_NUM} .
