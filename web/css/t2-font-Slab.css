@@ -1,27 +1,27 @@
 @font-face {
-  font-family: "Tele2Slab-TextRegular";
-  src: url("../fonts/Tele2_Slab_2018/eot/Tele2Slab-TextRegular.eot");
-  src: url("../fonts/Tele2_Slab_2018/eot/Tele2Slab-TextRegular.eot?#iefix") format("embedded-opentype"), url("../fonts/Tele2_Slab_2018/woff2/Tele2Slab-TextRegular.woff2") format("woff2"), url("../fonts/Tele2_Slab_2018/woff/Tele2Slab-TextRegular.woff") format("woff"), url("../fonts/Tele2_Slab_2018/ttf/Tele2Slab-TextRegular.ttf") format("truetype");
+  font-family: "Slab-TextRegular";
+  src: url("../fonts/_Slab_2018/eot/Slab-TextRegular.eot");
+  src: url("../fonts/_Slab_2018/eot/Slab-TextRegular.eot?#iefix") format("embedded-opentype"), url("../fonts/_Slab_2018/woff2/Slab-TextRegular.woff2") format("woff2"), url("../fonts/_Slab_2018/woff/Slab-TextRegular.woff") format("woff"), url("../fonts/_Slab_2018/ttf/Slab-TextRegular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
-  font-family: "Tele2Slab-TextBold";
-  src: url("../fonts/Tele2_Slab_2018/eot/Tele2Slab-TextBold.eot");
-  src: url("../fonts/Tele2_Slab_2018/eot/Tele2Slab-TextBold.eot?#iefix") format("embedded-opentype"), url("../fonts/Tele2_Slab_2018/woff2/Tele2Slab-TextBold.woff2") format("woff2"), url("../fonts/Tele2_Slab_2018/woff/Tele2Slab-TextBold.woff") format("woff"), url("../fonts/Tele2_Slab_2018/ttf/Tele2Slab-TextBold.ttf") format("truetype");
+  font-family: "Slab-TextBold";
+  src: url("../fonts/_Slab_2018/eot/Slab-TextBold.eot");
+  src: url("../fonts/_Slab_2018/eot/Slab-TextBold.eot?#iefix") format("embedded-opentype"), url("../fonts/_Slab_2018/woff2/Slab-TextBold.woff2") format("woff2"), url("../fonts/_Slab_2018/woff/Slab-TextBold.woff") format("woff"), url("../fonts/_Slab_2018/ttf/Slab-TextBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
-  font-family: "Tele2Slab-DisplayHeavy";
-  src: url("../fonts/Tele2_Slab_2018/eot/Tele2Slab-DisplayHeavy.eot");
-  src: url("../fonts/Tele2_Slab_2018/eot/Tele2Slab-DisplayHeavy.eot?#iefix") format("embedded-opentype"), url("../fonts/Tele2_Slab_2018/woff2/Tele2Slab-DisplayHeavy.woff2") format("woff2"), url("../fonts/Tele2_Slab_2018/woff/Tele2Slab-DisplayHeavy.woff") format("woff"), url("../fonts/Tele2_Slab_2018/ttf/Tele2Slab-DisplayHeavy.ttf") format("truetype");
+  font-family: "Slab-DisplayHeavy";
+  src: url("../fonts/_Slab_2018/eot/Slab-DisplayHeavy.eot");
+  src: url("../fonts/_Slab_2018/eot/Slab-DisplayHeavy.eot?#iefix") format("embedded-opentype"), url("../fonts/_Slab_2018/woff2/Slab-DisplayHeavy.woff2") format("woff2"), url("../fonts/_Slab_2018/woff/Slab-DisplayHeavy.woff") format("woff"), url("../fonts/_Slab_2018/ttf/Slab-DisplayHeavy.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
-  font-family: "Tele2Slab-DisplayBlack";
-  src: url("../fonts/Tele2_Slab_2018/eot/Tele2Slab-DisplayBlack.eot");
-  src: url("../fonts/Tele2_Slab_2018/eot/Tele2Slab-DisplayBlack?#iefix") format("embedded-opentype"), url("../fonts/Tele2_Slab_2018/woff2/Tele2Slab-DisplayBlack.woff2") format("woff2"), url("../fonts/Tele2_Slab_2018/woff/Tele2Slab-DisplayBlack.woff") format("woff"), url("../fonts/Tele2_Slab_2018/ttf/Tele2Slab-DisplayBlack.ttf") format("truetype");
+  font-family: "Slab-DisplayBlack";
+  src: url("../fonts/_Slab_2018/eot/Slab-DisplayBlack.eot");
+  src: url("../fonts/_Slab_2018/eot/Slab-DisplayBlack?#iefix") format("embedded-opentype"), url("../fonts/_Slab_2018/woff2/Slab-DisplayBlack.woff2") format("woff2"), url("../fonts/_Slab_2018/woff/Slab-DisplayBlack.woff") format("woff"), url("../fonts/_Slab_2018/ttf/Slab-DisplayBlack.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }

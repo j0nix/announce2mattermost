@@ -2,7 +2,7 @@
 .custom{
 	max-width: 1000px;
 	padding: 20px 12px 10px 20px;
-	font-family: "Tele2Sans-Medium";
+	font-family: "Sans-Medium";
 	font-size: 13px;
 }
 .custom-heading{
@@ -152,7 +152,7 @@ hr {
 }
 
 code {
-font-family: "Tele2Sans-Light";
+font-family: "Sans-Light";
 background-attachment: scroll;
 background-clip: border-box;
 background-color: rgba(51, 51, 51, 0.1);
