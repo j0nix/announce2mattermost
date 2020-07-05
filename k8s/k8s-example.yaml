@@ -59,10 +59,10 @@ spec:
                 key: BINDPASSWORD
 
           - name: LDAPSERVER
-            value: "dc.ad.comhem.com:636"
+            value: "dc.ad.example.com:636"
 
           - name: LDAPBASEDN
-            value: "dc=ad,dc=comhem,dc=com"
+            value: "dc=ad,dc=example,dc=com"
 
           - name: BUILDTAG
             value: 1.0.0
